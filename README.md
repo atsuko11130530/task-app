@@ -67,9 +67,13 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## ER Diagram
 
+## ER Diagram
+
 ```mermaid
 erDiagram
     users ||--o{ tasks : "1ユーザーは多くのタスクを持つ"
     categories ||--o{ tasks : "1カテゴリは多くのタスクを持つ"
     tasks ||--o{ tags : "多対多"
     tags ||--o{ tasks : "多対多"
+```
+
