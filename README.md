@@ -64,3 +64,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## ER Diagram
+
+```mermaid
+erDiagram
+    users ||--o{ tasks : "1ユーザーは多くのタスクを持つ"
+    categories ||--o{ tasks : "1カテゴリは多くのタスクを持つ"
+    tasks ||--o{ tags : "多対多"
+    tags ||--o{ tasks : "多対多"
