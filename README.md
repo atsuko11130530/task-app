@@ -75,5 +75,44 @@ erDiagram
     tags ||--o{ tasks : "多対多"
 ```
 
+## ER Diagram
+erDiagram
+    users {
+        bigint id PK
+        string name
+        string email
+        string password
+    }
+
+    attendance {
+        bigint id PK
+        bigint user_id FK
+        date date
+        time clock_in
+        time clock_out
+        time break_1_start
+        time break_1_end
+        time break_2_start
+        time break_2_end
+        text note
+        int total_minutes
+        string status
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    correction_request {
+        bigint id PK
+        bigint attendance_id FK
+        bigint user_id FK
+        text request_reason
+        string request_status
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    users ||--o{ attendance : "1人のユーザーは複数の勤怠を持つ"
+    attendance ||--o{ correction_request : "1つの勤怠に複数の修正申請がつく"
+    users ||--o{ correction_request : "修正申請を出すのはユーザー"
 
 
