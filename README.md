@@ -76,6 +76,8 @@ erDiagram
 ```
 
 ## ER Diagram
+
+```mermaid
 erDiagram
     users {
         bigint id PK
@@ -83,7 +85,6 @@ erDiagram
         string email
         string password
     }
-
     attendance {
         bigint id PK
         bigint user_id FK
@@ -100,7 +101,6 @@ erDiagram
         timestamp created_at
         timestamp updated_at
     }
-
     correction_request {
         bigint id PK
         bigint attendance_id FK
@@ -110,9 +110,6 @@ erDiagram
         timestamp created_at
         timestamp updated_at
     }
-
     users ||--o{ attendance : "1人のユーザーは複数の勤怠を持つ"
     attendance ||--o{ correction_request : "1つの勤怠に複数の修正申請がつく"
     users ||--o{ correction_request : "修正申請を出すのはユーザー"
-
-
